@@ -6,9 +6,9 @@ const Experience = () => {
   return (
     <div className="border-b border-neutral-900 pb-20">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
-        transition={{ duration: 1.5 }}
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
         className="my-12 text-center text-4xl font-extrabold text-gray-300"
       >
         Experience
@@ -17,16 +17,16 @@ const Experience = () => {
         {EXPERIENCE.map((exp, index) => (
           <motion.div
             key={index}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 50 }}
-            transition={{ duration: 1 }}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
             className="p-6 rounded-2xl shadow-lg bg-neutral-800/30"
           >
             <div className="flex flex-wrap lg:justify-start">
               <motion.div
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -50 }}
-                transition={{ duration: 1.5 }}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
                 className="w-full lg:w-1/4 mb-4 lg:mb-0"
               >
                 <p className="flex justify-start lg:justify-end pr-3 text-md text-gray-300 mt-1">
@@ -34,9 +34,9 @@ const Experience = () => {
                 </p>
               </motion.div>
               <motion.div
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: 50 }}
-                transition={{ duration: 1 }}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
                 className="w-full lg:w-3/4"
               >
                 <h6 className="text-2xl font-semibold text-gray-100 mb-2">

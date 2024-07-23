@@ -33,17 +33,17 @@ const Technologies = () => {
   return (
     <div className="border-b border-neutral-900 pb-24">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
-        transition={{ duration: 1.5 }}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
         className="my-20 text-center font-extrabold text-gray-300 text-4xl"
       >
         Technologies
       </motion.h2>
       <motion.div
-        whileInView={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: -100 }}
-        transition={{ duration: 1 }}
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
         className="flex flex-wrap items-center justify-center gap-4"
       >
         {Icons.map((Icon, index) => (
