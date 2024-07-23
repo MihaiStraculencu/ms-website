@@ -3,10 +3,37 @@ import logo from "../assets/logo.png";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsFileEarmarkPerson } from "react-icons/bs";
 import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const toggleTooltip = () => {
+    setShowTooltip(!showTooltip);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setIsScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="mb-20 flex items-center justify-between py-6">
+    <nav
+      className={`mb-20 flex items-center justify-between py-6 sticky top-0 z-50 transition-all duration-300 p-4 mx-auto ${
+        isScrolled
+          ? "bg-gray-900/95 shadow-lg rounded-b-2xl backdrop-blur-sm  "
+          : "bg-transparent p-0"
+      }`}
+    >
       <motion.div
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.8 }}
@@ -22,6 +49,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:cursor-pointer transition ease-in-out delay-120 hover:-translate-y-1 hover:scale-105 duration-200"
+          onClick={toggleTooltip}
         >
           <FaLinkedin />
         </a>
@@ -33,6 +61,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:cursor-pointer transition ease-in-out delay-120 hover:-translate-y-1 hover:scale-105 duration-200"
+          onClick={toggleTooltip}
         >
           <FaGithub />
         </a>
@@ -45,6 +74,7 @@ const Navbar = () => {
           download="Straculencu_Mihai_CV.pdf"
           className="hover:cursor-pointer transition ease-in-out delay-120 hover:-translate-y-1 hover:scale-105 duration-200"
           aria-label="Download CV"
+          onClick={toggleTooltip}
         >
           <BsFileEarmarkPerson />
         </a>

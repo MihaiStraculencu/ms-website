@@ -5,8 +5,8 @@ const Projects = () => {
   return (
     <div className="border-b border-neutral-900 pb-20">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="my-20 text-center text-4xl font-extrabold text-gray-300"
       >
@@ -16,8 +16,8 @@ const Projects = () => {
         {PROJECTS.map((project, index) => (
           <motion.div
             key={index}
-            whileInView={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="bg-neutral-800/30 rounded-lg overflow-hidden shadow-lg flex flex-col"
           >
