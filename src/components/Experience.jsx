@@ -20,7 +20,7 @@ const Experience = () => {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="p-6 rounded-2xl shadow-lg bg-neutral-800/30"
+            className="p-6 rounded-2xl shadow-lg bg-neutral-800/20 backdrop-blur-sm"
           >
             <div className="flex flex-wrap lg:justify-start">
               <motion.div
