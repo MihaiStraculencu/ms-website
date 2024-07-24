@@ -25,11 +25,14 @@ const Projects = () => {
       </motion.h2>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((project, index) => (
-          <motion.div
+          <motion.a
             key={index}
+            href={project.link}
+            target="_blank"
             initial={{ y: 100, opacity: 0 }}
             animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.1 }}
             className="bg-neutral-800/30 rounded-lg overflow-hidden shadow-lg flex flex-col"
           >
             <img
@@ -55,7 +58,7 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>
