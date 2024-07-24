@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { EXPERIENCE } from "../constants";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const Experience = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
   return (
-    <div className="border-b border-neutral-900 pb-20">
+    <div className="border-b border-neutral-900 pb-20" ref={ref}>
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        animate={hasAnimated ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 1, delay: 1 }}
         className="my-12 text-center text-4xl font-extrabold text-gray-300"
       >
@@ -18,14 +28,14 @@ const Experience = () => {
           <motion.div
             key={index}
             initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 1, delay: 1 }}
             className="p-6 rounded-2xl shadow-lg bg-neutral-800/20 backdrop-blur-sm"
           >
             <div className="flex flex-wrap lg:justify-start">
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
+                animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
                 transition={{ duration: 1, delay: 1 }}
                 className="w-full lg:w-1/4 mb-4 lg:mb-0"
               >
@@ -35,8 +45,8 @@ const Experience = () => {
               </motion.div>
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 1 }}
+                animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
+                transition={{ duration: 1, delay: 0.5 }}
                 className="w-full lg:w-3/4"
               >
                 <h6 className="text-2xl font-semibold text-gray-100 mb-2">

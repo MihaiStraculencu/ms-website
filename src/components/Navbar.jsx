@@ -28,13 +28,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`lg:mb-32 mb-10 py-4 sticky top-0 z-50 transition-all duration-300 ${
+      className={`lg:mb-24 mb-10 py-4 sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-gray-900/95 shadow-lg backdrop-blur-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="lg:container md:shrink-0 lg:mx-auto mx-5 flex items-center justify-between">
+      <div className="container px-8 mx-auto flex items-center justify-between">
         <motion.div
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.8 }}
@@ -42,7 +42,7 @@ const Navbar = () => {
         >
           <img src={logo} alt="logo" className="w-30 h-8" />
         </motion.div>
-        <div className="margin-8 flex items-center justify-center gap-4 text-2xl">
+        <div className="flex items-center justify-center gap-4 text-2xl">
           <a
             data-tooltip-id="Linkedin"
             data-tooltip-content="Linkedin"
@@ -79,7 +79,13 @@ const Navbar = () => {
           >
             <BsFileEarmarkPerson />
           </a>
-          <Tooltip id="CV" place="bottom" type="dark" effect="solid" />
+          <Tooltip
+            id="CV"
+            place="bottom"
+            type="dark"
+            effect="solid"
+            scale={1.5}
+          />
         </div>
       </div>
     </nav>
