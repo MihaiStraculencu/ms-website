@@ -58,6 +58,7 @@ export const PROJECTS = [
     title: "Remax.md",
     image: remax,
     description: "A website for Remax, a luxury real estate company.",
+    link: "https://remax.md",
     technologies: ["HTML", "Bootstrap", "JavaScript", "jQuery", "Docker"],
   },
   {
@@ -65,6 +66,7 @@ export const PROJECTS = [
     image: sophia,
     description:
       "Responsive landing page showcasing a construction company's services. Features an interactive contact form for lead generation.",
+    link: "https://wrs-site-knbspinnc-ariminumio.vercel.app/",
     technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
   },
   {
@@ -72,6 +74,7 @@ export const PROJECTS = [
     image: raypath,
     description:
       "Fast-loading website with unique styling. Utilized Next.js, Tailwind CSS, and TypeScript to ensure reliability.",
+    link: "https://raypath-site-8jfthsb5m-ariminumio.vercel.app/",
     technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
   },
   {
@@ -79,6 +82,7 @@ export const PROJECTS = [
     image: betonix,
     description:
       "Client website with a focus on smooth performance and cool design. Built with Next.js and Tailwind CSS.",
+    link: "https://betonix-site-gve6d9962-ariminumio.vercel.app/",
     technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
   },
 ];
