@@ -1,13 +1,24 @@
+import React, { useEffect, useState } from "react";
 import { PROJECTS } from "../constants";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const Projects = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
   return (
-    <div className="border-b border-neutral-900 pb-20">
+    <div className="border-b border-neutral-900 pb-20" ref={ref}>
       <motion.h2
         initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.5 }}
         className="my-20 text-center text-4xl font-extrabold text-gray-300"
       >
         Projects
@@ -17,7 +28,7 @@ const Projects = () => {
           <motion.div
             key={index}
             initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="bg-neutral-800/30 rounded-lg overflow-hidden shadow-lg flex flex-col"
           >
