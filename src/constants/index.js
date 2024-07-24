@@ -2,6 +2,8 @@ import remax from "../assets/remax.jpg";
 import sophia from "../assets/sophia.webp";
 import raypath from "../assets/raypath.jpg";
 import betonix from "../assets/betonix.png";
+import calculator from "../assets/calculator.png";
+import twitter from "../assets/twitter.png";
 
 export const HERO_CONTENT = `
 Frontend Developer with expertise in React and Next.js. Proficient in JavaScript, TypeScript, and Tailwind CSS. Specializes in building responsive, user-friendly web applications and optimizing performance. Effectively collaborates with cross-functional teams to tackle technical challenges.
@@ -91,3 +93,29 @@ export const CONTACT = {
   phoneNo: "+40 726 688 874",
   email: "mihaistraculencu83@mail.com",
 };
+
+export const PERSONAL_PROJECTS = [
+  {
+    title: "TwitterClone",
+    image: twitter,
+    description:
+      "TwitterClone is a dynamic web application inspired by Twitter, developed to showcase modern frontend technologies and user interaction capabilities.",
+    link: "https://twitterclone-f0512.web.app/",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Git",
+      "Firebase",
+      "React Forms",
+    ],
+  },
+  {
+    title: "Calculator App",
+    image: calculator,
+    description:
+      "Developed a user-friendly calculator app to practice and enhance my skills in React and JavaScript",
+    link: "https://calculator-app-ce141.web.app/",
+    technologies: ["React", "Tailwind CSS", "Javascript", "Git"],
+  },
+];
