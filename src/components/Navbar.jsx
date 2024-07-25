@@ -1,33 +1,55 @@
+import React, { useState, useEffect, useCallback } from "react";
 import { Tooltip } from "react-tooltip";
-import logo from "../assets/logo.png";
+import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsFileEarmarkPerson } from "react-icons/bs";
-import { motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import logo from "../assets/logo.png";
+
+const NavbarLink = ({
+  href,
+  ariaLabel,
+  tooltipId,
+  tooltipContent,
+  icon: Icon,
+}) => (
+  <motion.a
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    data-tooltip-id={tooltipId}
+    data-tooltip-content={tooltipContent}
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-2xl hover:cursor-pointer transition-all duration-150 hover:text-indigo-400"
+    aria-label={ariaLabel}
+  >
+    <Icon />
+    <Tooltip
+      id={tooltipId}
+      place="bottom"
+      className="mt-1 text-sm"
+      style={{ fontSize: "14px" }}
+    />
+  </motion.a>
+);
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
 
-  const toggleTooltip = () => {
-    setShowTooltip(!showTooltip);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setIsScrolled(isScrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 0);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
   return (
-    <nav
+    <motion.nav
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className={`lg:mb-32 mb-10 py-4 sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-gray-900/95 shadow-lg backdrop-blur-sm"
@@ -36,59 +58,37 @@ const Navbar = () => {
     >
       <div className="container px-8 mx-auto flex items-center justify-between">
         <motion.div
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           className="flex flex-shrink-0 items-center"
         >
           <img src={logo} alt="logo" className="w-30 h-8" />
         </motion.div>
-        <div className="flex items-center justify-center gap-4 text-2xl">
-          <a
-            data-tooltip-id="Linkedin"
-            data-tooltip-content="Linkedin"
+        <div className="flex items-center justify-center gap-6">
+          <NavbarLink
             href="https://www.linkedin.com/in/straculencu-mihai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:cursor-pointer transition ease-in-out delay-120 hover:-translate-y-1 hover:scale-105 duration-200"
-            onClick={toggleTooltip}
-          >
-            <FaLinkedin />
-          </a>
-          <Tooltip id="Linkedin" place="top" type="dark" effect="solid" />
-          <a
-            data-tooltip-id="Github"
-            data-tooltip-content="Github"
+            ariaLabel="LinkedIn Profile"
+            tooltipId="Linkedin"
+            tooltipContent="LinkedIn"
+            icon={FaLinkedin}
+          />
+          <NavbarLink
             href="https://github.com/MihaiStraculencu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:cursor-pointer transition ease-in-out delay-120 hover:-translate-y-1 hover:scale-105 duration-200"
-            onClick={toggleTooltip}
-          >
-            <FaGithub />
-          </a>
-          <Tooltip id="Github" place="bottom" type="dark" effect="solid" />
-
-          <a
-            data-tooltip-id="CV"
-            data-tooltip-content="Download CV"
+            ariaLabel="GitHub Profile"
+            tooltipId="Github"
+            tooltipContent="GitHub"
+            icon={FaGithub}
+          />
+          <NavbarLink
             href="/Straculencu_Mihai_CV.pdf"
-            download="Straculencu_Mihai_CV.pdf"
-            className="hover:cursor-pointer transition ease-in-out delay-120 hover:-translate-y-1 hover:scale-105 duration-200"
-            aria-label="Download CV"
-            onClick={toggleTooltip}
-          >
-            <BsFileEarmarkPerson />
-          </a>
-          <Tooltip
-            id="CV"
-            place="bottom"
-            type="dark"
-            effect="solid"
-            scale={1.5}
+            ariaLabel="Download CV"
+            tooltipId="CV"
+            tooltipContent="Download CV"
+            icon={BsFileEarmarkPerson}
           />
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
