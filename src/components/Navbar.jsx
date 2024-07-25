@@ -27,7 +27,7 @@ const NavbarLink = ({
     <Tooltip
       id={tooltipId}
       place="bottom"
-      className="mt-1 font-thin text-sm"
+      className="mt-1 text-sm"
       style={{ fontSize: "14px" }}
     />
   </motion.a>
