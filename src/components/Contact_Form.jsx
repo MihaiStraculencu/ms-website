@@ -13,10 +13,10 @@ const FormComponent = () => {
   const onSubmit = async (data) => {
     try {
       const result = await emailjs.send(
-        "service_9yp84ft",
-        "template_z0w9zki",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         data,
-        "mI7CxqY61opIRnGWD"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       if (result.text === "OK") {
