@@ -87,6 +87,8 @@ async function handler(req, res) {
         `,
       });
 
+      console.log("Public Key:", process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
       console.error("Error sending email:", error);
