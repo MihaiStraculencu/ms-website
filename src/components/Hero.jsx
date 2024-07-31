@@ -46,11 +46,13 @@ const Hero = () => {
           <div className="flex justify-center">
             <motion.img
               initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
+              whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
+              viewport={{ once: true }}
               className="rounded-3xl"
               src={profilePic}
               alt="profile-pic"
+              loading="lazy"
             />
           </div>
         </div>

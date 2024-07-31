@@ -39,6 +39,7 @@ const Projects = () => {
               src={project.image}
               alt={project.title}
               className="w-full h-48 object-cover"
+              loading="lazy"
             />
             <div className="p-6 flex flex-col flex-grow">
               <h3 className="text-2xl font-semibold text-gray-100 mb-2">
