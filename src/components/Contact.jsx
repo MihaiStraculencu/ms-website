@@ -1,5 +1,7 @@
 import { CONTACT } from "../constants";
+import React from "react";
 import { motion } from "framer-motion";
+import Contact_Form from "./Contact_Form";
 
 const Contact = () => {
   return (
@@ -12,7 +14,8 @@ const Contact = () => {
       <h1 className="my-10 text-center text-4xl font-extrabold text-gray-300">
         Get in Touch
       </h1>
-      <div className="text-center space-y-6">
+      <Contact_Form />
+      <div className="text-center space-y-6 mt-5">
         <a
           href={`mailto:${CONTACT.email}`}
           className="text-lg text-blue-300 hover:text-blue-700 transition duration-300 ease-in-out transform hover:scale-105"

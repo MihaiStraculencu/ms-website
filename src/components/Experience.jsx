@@ -31,7 +31,7 @@ const Experience = () => {
           >
             <div className="flex flex-wrap lg:justify-start">
               <motion.div
-                initial={{ y: 100, opacity: 0 }}
+                initial={{ y: 0, opacity: 0 }}
                 animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
                 transition={{ duration: 1, delay: 1 }}
                 className="w-full lg:w-1/4 mb-4 lg:mb-0"
@@ -41,7 +41,7 @@ const Experience = () => {
                 </p>
               </motion.div>
               <motion.div
-                initial={{ y: 100, opacity: 0 }}
+                initial={{ y: 0, opacity: 0 }}
                 animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
                 transition={{ duration: 1, delay: 0.5 }}
                 className="w-full lg:w-3/4"
