@@ -12,11 +12,19 @@ const FormComponent = () => {
 
   const onSubmit = async (data) => {
     try {
+      const emailData = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        mobileNumber: data.mobileNumber,
+        message: data.message,
+      };
+
       const result = await emailjs.send(
-        "service_9yp84ft",
-        "template_z0w9zki",
-        data,
-        "mI7CxqY61opIRnGWD"
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        emailData,
+        "YOUR_PUBLIC_KEY"
       );
 
       if (result.text === "OK") {
