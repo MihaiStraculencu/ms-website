@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         to: "destination@example.com",
         subject: "New Form Submission",
         text: `
-          Name: ${firstName} ${lastName}
+          Name: {{firstName}} {{lastName}}
           Email: ${email}
           Mobile: ${mobileNumber}
           Message: ${message}
