@@ -23,6 +23,7 @@ const FormComponent = () => {
         alert("Form submitted successfully!");
         reset();
       } else {
+        console.error("EmailJS response error:", result);
         alert("Failed to submit form. Please try again.");
       }
     } catch (error) {
@@ -30,6 +31,7 @@ const FormComponent = () => {
       alert("An error occurred. Please try again later.");
     }
   };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
