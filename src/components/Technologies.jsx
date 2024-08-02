@@ -34,7 +34,7 @@ const Technologies = () => {
 
   const Icons = [
     { icon: RiReactjsLine, name: "React", color: "text-cyan-400" },
-    { icon: TbBrandNextjs, name: "Next.js", color: "text-neutral-400" },
+    { icon: TbBrandNextjs, name: "Next.js", color: "text-neutral-200" },
     { icon: IoLogoJavascript, name: "JavaScript", color: "text-yellow-400" },
     { icon: TbBrandTypescript, name: "TypeScript", color: "text-blue-400" },
     { icon: RiTailwindCssFill, name: "Tailwind CSS", color: "text-blue-400" },
@@ -42,7 +42,7 @@ const Technologies = () => {
   ];
 
   return (
-    <div className="border-b border-neutral-900 pb-24" ref={ref}>
+    <div className="border-b border-neutral-900 pb-24 z-0" ref={ref}>
       <motion.h2
         initial={{ y: -100, opacity: 0 }}
         animate={hasAnimated ? { y: 0, opacity: 1 } : {}}
@@ -55,7 +55,7 @@ const Technologies = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={hasAnimated ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 1, delay: 0.5 }}
-        className="flex flex-wrap items-center justify-center gap-4"
+        className="flex flex-wrap items-center justify-center gap-5"
       >
         {Icons.map(({ icon: Icon, name, color }, index) => (
           <motion.div
@@ -63,18 +63,17 @@ const Technologies = () => {
             initial="initial"
             animate={hasAnimated ? "animate" : "initial"}
             key={index}
-            className="rounded-2xl border-4 border-neutral-800 p-4 flex flex-col items-center"
+            className="rounded-2xl border-4 border-neutral-300 p-4 flex flex-col items-center relative"
           >
             <Icon
               className={`text-7xl ${color}`}
-              data-tooltip-id={`tooltip-${index}`}
+              data-tooltip-id="tooltip"
+              data-tooltip-content={name}
             />
-            <Tooltip id={`tooltip-${index}`} place="bottom" className="mt-4">
-              {name}
-            </Tooltip>
           </motion.div>
         ))}
       </motion.div>
+      <Tooltip id="tooltip" place="bottom" className="z-50 mt-5" />
     </div>
   );
 };
