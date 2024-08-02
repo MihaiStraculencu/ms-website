@@ -35,12 +35,12 @@ const FormComponent = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md"
+      className="max-w-md mx-auto mt-8 p-6 bg-slate-100/10 rounded-lg shadow-lg backdrop-blur-sm border border-slate-100/10 "
     >
       <div className="mb-4">
         <label
           htmlFor="firstName"
-          className="block mb-2 text-sm font-medium text-slate-700"
+          className="block mb-2 text-sm font-medium text-slate-200"
         >
           First Name
         </label>
@@ -48,10 +48,10 @@ const FormComponent = () => {
           id="firstName"
           type="text"
           placeholder="First name"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-700 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 font-form ${
             errors.firstName
               ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-indigo-500"
+              : "border-gray-300 focus:ring-indigo-300/50"
           }`}
           {...register("firstName", {
             required: "First name is required",
@@ -68,7 +68,7 @@ const FormComponent = () => {
       <div className="mb-4">
         <label
           htmlFor="lastName"
-          className="block mb-2 text-sm font-medium text-gray-700"
+          className="block mb-2 text-sm font-medium text-gray-100"
         >
           Last Name
         </label>
@@ -76,10 +76,10 @@ const FormComponent = () => {
           id="lastName"
           type="text"
           placeholder="Last name"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-700 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
             errors.lastName
               ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-indigo-500"
+              : "border-gray-300 focus:ring-indigo-300/50"
           }`}
           {...register("lastName", {
             required: "Last name is required",
@@ -94,7 +94,7 @@ const FormComponent = () => {
       <div className="mb-4">
         <label
           htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-700"
+          className="block mb-2 text-sm font-medium text-gray-100"
         >
           Email
         </label>
@@ -102,10 +102,10 @@ const FormComponent = () => {
           id="email"
           type="email"
           placeholder="Email"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-700 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
             errors.email
               ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-indigo-500"
+              : "border-gray-300 focus:ring-indigo-300/50"
           }`}
           {...register("email", {
             required: "Email is required",
@@ -123,7 +123,7 @@ const FormComponent = () => {
       <div className="mb-4">
         <label
           htmlFor="mobileNumber"
-          className="block mb-2 text-sm font-medium text-gray-700"
+          className="block mb-2 text-sm font-medium text-gray-100"
         >
           Mobile Number
         </label>
@@ -132,10 +132,10 @@ const FormComponent = () => {
           type="tel"
           pattern="[0-9]*"
           placeholder="Mobile number"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-700 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
             errors.mobileNumber
               ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-indigo-500"
+              : "border-gray-300 focus:ring-indigo-300/50"
           }`}
           {...register("mobileNumber", {
             required: "Mobile number is required",
@@ -153,17 +153,17 @@ const FormComponent = () => {
       <div className="mb-4">
         <label
           htmlFor="message"
-          className="block mb-2 text-sm font-medium text-gray-700"
+          className="block mb-2 text-sm font-medium text-gray-100"
         >
           Message
         </label>
         <textarea
           id="message"
           placeholder="Your message"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-700 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
             errors.message
               ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-indigo-500"
+              : "border-gray-300 focus:ring-indigo-300/50"
           }`}
           rows="4"
           {...register("message", { required: "Message is required" })}
@@ -175,7 +175,7 @@ const FormComponent = () => {
 
       <button
         type="submit"
-        className="w-full px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover:transition-colors"
+        className="w-full px-4 py-2 text-slate-900 bg-white rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-opacity-50 hover:transition-colors"
       >
         Submit
       </button>
