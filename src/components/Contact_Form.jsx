@@ -35,7 +35,7 @@ const FormComponent = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-md mx-auto mt-8 p-6 bg-slate-100/10 rounded-lg shadow-lg backdrop-blur-sm border border-slate-100/10 "
+      className="max-w-md mx-auto mt-8 p-6 bg-slate-100/10 rounded-lg shadow-lg  border border-slate-100/10 "
     >
       <div className="mb-4">
         <label
