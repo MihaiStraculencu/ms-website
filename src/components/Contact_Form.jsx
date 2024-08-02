@@ -48,7 +48,7 @@ const FormComponent = () => {
           id="firstName"
           type="text"
           placeholder="First name"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 font-form ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-800 font-form ${
             errors.firstName
               ? "border-red-500 focus:ring-red-500"
               : "border-gray-300 focus:ring-indigo-300/50"
@@ -76,7 +76,7 @@ const FormComponent = () => {
           id="lastName"
           type="text"
           placeholder="Last name"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-800 ${
             errors.lastName
               ? "border-red-500 focus:ring-red-500"
               : "border-gray-300 focus:ring-indigo-300/50"
@@ -102,7 +102,7 @@ const FormComponent = () => {
           id="email"
           type="email"
           placeholder="Email"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-800 ${
             errors.email
               ? "border-red-500 focus:ring-red-500"
               : "border-gray-300 focus:ring-indigo-300/50"
@@ -132,7 +132,7 @@ const FormComponent = () => {
           type="tel"
           pattern="[0-9]*"
           placeholder="Mobile number"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-800 ${
             errors.mobileNumber
               ? "border-red-500 focus:ring-red-500"
               : "border-gray-300 focus:ring-indigo-300/50"
@@ -160,7 +160,7 @@ const FormComponent = () => {
         <textarea
           id="message"
           placeholder="Your message"
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-4 text-slate-800 ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 text-slate-800 ${
             errors.message
               ? "border-red-500 focus:ring-red-500"
               : "border-gray-300 focus:ring-indigo-300/50"
